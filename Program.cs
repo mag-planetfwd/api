@@ -20,15 +20,4 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Use(async (context, next) =>
-{
-    if (context.Request.Path == "/")
-    {
-        context.Request.Path = "/swagger/index.html";
-        return;
-    }
-
-    await next(context);
-});
-
 app.Run();
